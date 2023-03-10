@@ -1,0 +1,20 @@
+package com.javainspires.demothymeleaf;
+/*
+ * This project is  used to create index page,Login Page,Dashboard page
+ * 
+ * Author - Sheeba Murugesan
+ * Date -02-03-2023
+ * Version - 1.0.0
+ * */
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class ThymeleafLoginApplication {
+
+	public static void main(String[] args) {
+		SpringApplication.run(ThymeleafLoginApplication.class, args);
+	}
+
+}

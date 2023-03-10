@@ -1,0 +1,105 @@
+<!doctype html>
+<html>
+<head>
+<!-- Required meta tags -->
+<meta charset="utf-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<!-- Bootstrap CSS -->
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+	integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+	crossorigin="anonymous">
+<title>Home page</title>
+</head>
+<body>
+	<!-- Navbar -->
+<body  style="background-color:#f0f1f2;">
+	<nav class="navbar navbar-expand-sm bg-info navbar-dark">
+		<a class="navbar-brand" href="#">Agent Monitoring and Controlling</a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse"
+			data-target="#navbarSupportedContent"
+			aria-controls="navbarSupportedContent" aria-expanded="false"
+			aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+<div class="collapse navbar-collapse" id="navbarSupportedContent">
+			<ul class="navbar-nav mr-auto">
+				<li class="nav-item active"><a class="nav-link" href="#">Home
+						<span class="sr-only">(current)</span></a></li>
+				<li class="nav-item active"><a class="nav-link" href="add_emp">Add Agent</a></li>
+			</ul>
+		</div>
+	</nav>
+
+	<!-- Navbar -->
+	<br>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-6 offset-md-3">
+				<div class="card">
+					<div class="card-body">
+					<center>
+						<h4 class="button button5"><h3>Add Agent</h3></h4>
+				    </center>
+						<form th:action="@{/register}" method="post">
+
+							<div class="form-group">
+								<label><h6>Enter Full Name</h6></label> <input type="text"
+									class="form-control" name="name">
+							</div>
+
+							<div class="form-group">
+								<label><h6>Enter Address</h6></label> <input type="text"
+									class="form-control" name="address">
+							</div>
+
+							<div class="form-group">
+								<label><h6>Enter Email</h6></label> <input type="email"
+									class="form-control" name="email">
+							</div>
+
+							<div class="form-group">
+								<label><h6>Enter Date Of Joining</h6></label> <input type="date"
+									class="form-control" name="dateofjoining">
+							</div>
+							<div class="form-group">
+								<label><h6>Enter Experience</h6></label> <input type="number"
+									class="form-control" name="dateofjoining">
+							</div>
+							 <div class="form-group">
+								  <label><h6>Current Status</h6></label>
+									&nbsp;&nbsp;&nbsp;<input type="radio" id="html" name="fav_language" value="HTML">
+ 									<label for="html">Live</label>
+									<br>
+  									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+									<input type="radio" id="css" name="fav_language" value="CSS">
+  									<label for="css">Sleep</label><br></div>
+									<!--   <li><form th:action="@{/register}" method="post">
+									<input type="submit" class="btn btn-info"  value="Logout"/></form></li>-->
+							<button class="btn btn-success"><h5>Submit</h5></button>
+							<button class="btn"><h5><a th:href="@{/}">Back to Employee List</h5></a>
+							</button>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- footer -->
+		<footer class="bg-light text-center text-lg-start">
+		 </br>
+		  </br>
+		<div class="text-center p-2" style="background-color: #80ced6;">
+			<a class="text-dark">AMC:Version 1.0.0</a>
+ 		<!--Current date&Time&Second in India Standard Time-->
+ 		<p id="demo"></p>
+		<script>
+			const d = new Date();
+			document.getElementById("demo").innerHTML = d;
+		</script>
+		<!--Current date&Time&Second in India Standard Time-->
+  </div>
+</body>
+</html>

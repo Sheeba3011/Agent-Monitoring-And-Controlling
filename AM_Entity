@@ -7,11 +7,13 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
 @Entity
+//Database table name
 @Table(name = "EMP_SYSTEM")
 public class agentData {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+//This field are using AMC project
 	private int id;
 	private String name;
 	private String address;
@@ -19,10 +21,12 @@ public class agentData {
 	private String  AgentDateOfJoining;
 	private String AgentExpirience;
 	private String AgentStatus;
+//Super class
 	public agentData() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
+//getter and setter
 	public int getId() {
 		return id;
 	}
@@ -65,6 +69,9 @@ public class agentData {
 	public void setAgentStatus(String agentStatus) {
 		AgentStatus = agentStatus;
 	}
+//getter and setter
+	
+//Constructor fields
 	public agentData(int id, String name, String address, String email, String phno, String agentDateOfJoining,
 			String agentExpirience, String agentStatus) {
 		super();

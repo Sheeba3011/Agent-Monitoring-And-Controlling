@@ -1,28 +1,28 @@
 package com.prog.service;
-
+//These packages are using 
 import java.util.List;
 import java.util.Optional;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
-
 import com.prog.entity.agentData;
-import com.prog.repository.EmpRepo;
+import com.prog.repository.agentRepo;
 
+//Service will be connected to controller & it helps to mapping a html pages
 @Service
-public class AgentService {
+public class agentService {
 
+//@Autowired annotation can be mapping & applied on variables and methods for autowiring byType
 	@Autowired
-	private EmpRepo repo;
-
-	public void addEmp(agentData e) {
+	private agentRepo repo;
+//addAgent to connect to Controller
+	public void addEMp(agentData e) {
 		repo.save(e);
 	}
 
-	public List<agentData> getAllEmp() {
+	public List<agentData> getAllEMp() {
 		return repo.findAll();
 	}
 
@@ -34,10 +34,11 @@ public class AgentService {
 		return null;
 	}
 
+//updateAgent to connect to Controller
 	public void deleteEMp(int id) {
 		repo.deleteById(id);
 	}
-
+//pagination
 	public Page<agentData> getEMpByPaginate(int currentPage, int size) {
 		Pageable p = PageRequest.of(currentPage, size);
 		return repo.findAll(p);

@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 import com.prog.entity.agentData;
 
 @Repository
-public interface EmpRepo  extends JpaRepository<agentData, Integer>{
+public interface agentRepo  extends JpaRepository<agentData, Integer>{
 
 }

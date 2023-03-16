@@ -46,10 +46,5 @@ public String logoutDo(HttpServletRequest request, HttpServletRequest response)
 {
 	return "login";
 }
-@RequestMapping(value = {"/agentmonitoring"}, method = RequestMethod.POST)
-public String agentMonitoring(HttpServletRequest request, HttpServletRequest response)
-{
-	return "agent";
-}
 }
 

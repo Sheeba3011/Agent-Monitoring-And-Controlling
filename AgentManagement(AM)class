@@ -1,19 +1,14 @@
 package com.prog;
-/*
- * This class used to create a Agent management  to create add,,update,delete a agent list
- * 
- * Author - Sheeba Murugesan
- * Date -03-03-2023
- * Version - 1.0.0
- * */
+
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class EmpSystemApplication {
+public class AmcApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(EmpSystemApplication.class, args);
+		SpringApplication.run(AmcApplication.class, args);
 	}
 
 }
+

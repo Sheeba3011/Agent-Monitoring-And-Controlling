@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en" xmlns:th="http://www.thymeleaf.com">
 <head>
-<!-- Required meta tags -->
+	<!-- Required meta tags -->
 <meta charset="utf-8">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -14,6 +14,8 @@
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
 	integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
 	crossorigin="anonymous">
+	<!-- Logout icon -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	<!-- Search Icon Link -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <title>Home page</title>
@@ -68,11 +70,8 @@ form.example::after {
 		</button>
 			<div class="collapse navbar-collapse" id="navbarSupportedContent">
 			<ul class="navbar-nav mr-auto">
-				<li class="nav-item active"><a class="nav-link" href="#">Home
-						<span class="sr-only">(current)</span>
-				</a></li>
-				<li class="nav-item active"><a class="nav-link" href="addemp">Add Agent</a></li>
-				<!-- White space using &nbsp; -->
+				<li class="nav-item active"><a class="nav-link" href="addemp"> <i style='font-size:24px' class='fas'>&#xf234;</i></a></a></li>
+				<!-- White space using &nbsp;-->
 				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 				&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -84,11 +83,26 @@ form.example::after {
 				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
 				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-				<li class="nav-item active"><a class="nav-link" href="addemp">Logout</a></li>
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				<!-- White space using &nbsp;-->
+				<!-- Logout -->
+				<li class="nav-item active"><a class="nav-link" href="addemp"><i style="font-size:24px" class="fa">&#xf08b;</i></a></li>
+				<!-- Logout -->
 			</ul>
 		</div>
 	</nav>
 	<!-- Navbar -->
+	
 	<div th:if=${session.msg}>
 		<div class="alert alert-success" role="alert" th:text="${session.msg}">
 		</div>
@@ -102,11 +116,11 @@ form.example::after {
   <button type="submit"><i class="fa fa-search"></i></button>
 </form>
 </center>
-<!-- Search bar option   -->
+	<!-- Search bar option   -->
 
 	<!-- Agent List Table -->
 	<div class="container p-5">
-	<center><h5><p style="color:BLUE;">GAD-A-GET Agent List</p></h5></center>
+	<center><h5><p style="color:BLUE;">GAD-A-GET COMPUTERS AGENTS LIST </p></h5></center>
 		<table class="table table-striped" border="1">
 			<thead class="bg-primary text-black">
 				 <tr bgcolor="#eee">
@@ -129,10 +143,10 @@ form.example::after {
 					<td th:text="${e.agentDateOfJoining}"></td>
 					<td th:text="${e. agentExpirience}"></td>
 					<td th:text="${e.agentStatus}"></td>
-					<td><a th:href="@{/edit/{id}(id=${e.id})}">
-							<i class="fa fa-edit"  style="font-size:12px;color:green;"></i></a>
+					<td><a class="btn" th:href="@{/edit/{id}(id=${e.id})}">
+							<i class="fa fa-edit"  style="font-size:14px;color:green;"></i></button></i></a>
 					<a class="btn" th:href="@{/delete/{id}(id=${e.id})}">
-							<i class="fa fa-trash" style="font-size:12px;color:red;"></i></a></td>
+							<i class="fa fa-trash" style="font-size:14px;color:red;" onclick="return confirm('Are you sure want to delete?');"></i></button></a></td>
 				</tr>
 			</tbody>
 		</table>
@@ -167,7 +181,7 @@ form.example::after {
 		src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
 		integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
 		crossorigin="anonymous"></script>
-		
+		<br>
 		<!-- Footer -->
 		<footer class="bg-light text-center text-lg-start">
 		</br>

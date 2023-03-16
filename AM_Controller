@@ -1,5 +1,5 @@
 package com.prog.controller;
-
+//Thease packages are using 
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
@@ -13,13 +13,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-
-import com.prog.entity.Employee;
-import com.prog.service.EmpService;
-
+import com.prog.entity.agentData;
+import com.prog.service.agentService;
 import jakarta.servlet.http.HttpSession;
-
-
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
@@ -32,62 +28,60 @@ import java.util.Scanner;
  * Date -10-03-2023
  * Version - 1.0.0
  * */
+//Controller annotation is used to mapping a modules  page by page
 @Controller
 public class agentController {
 
 	@Autowired
-	private EmpService service;
+	private agentService service;
 //This page will go Agent Management 
 	@GetMapping("/")
 	public String home(Model m) {
 		return findPaginated(0, m);
 	}
-	//This page will go add agent in Agent Management 
+	
+//This page will go add agent in Agent Management 
 	@GetMapping("/addemp")
 	public String addEmpForm() {
 		return "add_emp";
 	}
-
 	@PostMapping("/register")
-	
-	public String empRegister(@ModelAttribute Employee e, HttpSession session) {
-		service.addEmp(e);
-		session.setAttribute("msg", "Emplyoee Added Sucessfully..");
+	public String empRegister(@ModelAttribute agentData e, HttpSession session) {
+		service.addEMp(e);
+		session.setAttribute("msg", "Agent Added Sucessfully..");
 		return "redirect:/";
 	}
-	//This page will go update agent in Agent Management 
+	
+//This page will go update agent in Agent Management 
 	@GetMapping("/edit/{id}")
 	public String edit(@PathVariable int id, Model m) {
-		Employee e = service.getEMpById(id);
+		agentData e = service.getEMpById(id);
 		m.addAttribute("emp", e);
 		return "edit";
 	}
-
 	@PostMapping("/update")
-	
-	public String updateEmp(@ModelAttribute Employee e, HttpSession session) {
-		service.addEmp(e);
-		session.setAttribute("msg", "Emp Data Update Sucessfully..");
+	public String updateEMp(@ModelAttribute agentData e, HttpSession session) {
+		service.addEMp(e);
+		session.setAttribute("msg", "Agent Data Update Sucessfully..");
 		return "redirect:/";
 	}
-	//This page will go delete agent in Agent Management 
+//This page will go delete agent in Agent Management 
 	@GetMapping("/delete/{id}")
-	
 	public String deleteEMp(@PathVariable int id, HttpSession session) {
-
 		service.deleteEMp(id);
-		session.setAttribute("msg", "Emp Data Delete Sucessfully..");
+		session.setAttribute("msg", "Agent Data Delete Sucessfully..");
 		return "redirect:/";
 	}
+	
 //Pagination 
 	@GetMapping("/page/{pageno}")
 	public String findPaginated(@PathVariable int pageno, Model m) {
 
-		Page<Employee> emplist = service.getEMpByPaginate(pageno, 5);
-		m.addAttribute("emp", emplist);
+		Page<agentData> agentList = service.getEMpByPaginate(pageno, 5);
+		m.addAttribute("emp", agentList);
 		m.addAttribute("currentPage", pageno);
-		m.addAttribute("totalPages", emplist.getTotalPages());
-		m.addAttribute("totalItem", emplist.getTotalElements());
+		m.addAttribute("totalPages", agentList.getTotalPages());
+		m.addAttribute("totalItem", agentList.getTotalElements());
 		return "index";
 	}
 

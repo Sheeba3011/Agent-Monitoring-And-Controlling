@@ -23,7 +23,6 @@ import java.util.Iterator;
 import java.util.Scanner;
 /*
  * This class is used to develop a agent monitoring and controlling project
- * 
  * Author - Sheeba Murugesan
  * Date -10-03-2023
  * Version - 1.0.0
@@ -41,13 +40,13 @@ public class agentController {
 	}
 	
 //This page will go add agent in Agent Management 
-	@GetMapping("/addemp")
-	public String addEmpForm() {
-		return "add_emp";
+	@GetMapping("/addagent")
+	public String addAgentForm() {
+		return "addAgent";
 	}
 	@PostMapping("/register")
-	public String empRegister(@ModelAttribute agentData e, HttpSession session) {
-		service.addEMp(e);
+	public String agentRegister(@ModelAttribute agentData e, HttpSession session) {
+		service.addAgent(e);
 		session.setAttribute("msg", "Agent Added Sucessfully..");
 		return "redirect:/";
 	}
@@ -55,20 +54,20 @@ public class agentController {
 //This page will go update agent in Agent Management 
 	@GetMapping("/edit/{id}")
 	public String edit(@PathVariable int id, Model m) {
-		agentData e = service.getEMpById(id);
-		m.addAttribute("emp", e);
+		agentData e = service.getAgentById(id);
+		m.addAttribute("agent", e);
 		return "edit";
 	}
 	@PostMapping("/update")
-	public String updateEMp(@ModelAttribute agentData e, HttpSession session) {
-		service.addEMp(e);
+	public String updateAgent(@ModelAttribute agentData e, HttpSession session) {
+		service.addAgent(e);
 		session.setAttribute("msg", "Agent Data Update Sucessfully..");
 		return "redirect:/";
 	}
 //This page will go delete agent in Agent Management 
 	@GetMapping("/delete/{id}")
-	public String deleteEMp(@PathVariable int id, HttpSession session) {
-		service.deleteEMp(id);
+	public String deleteAgent(@PathVariable int id, HttpSession session) {
+		service.deleteAgent(id);
 		session.setAttribute("msg", "Agent Data Delete Sucessfully..");
 		return "redirect:/";
 	}
@@ -77,12 +76,12 @@ public class agentController {
 	@GetMapping("/page/{pageno}")
 	public String findPaginated(@PathVariable int pageno, Model m) {
 
-		Page<agentData> agentList = service.getEMpByPaginate(pageno, 5);
-		m.addAttribute("emp", agentList);
+		Page<agentData> agentList = service.getAgentByPaginate(pageno, 5);
+		m.addAttribute("agent", agentList);
 		m.addAttribute("currentPage", pageno);
 		m.addAttribute("totalPages", agentList.getTotalPages());
 		m.addAttribute("totalItem", agentList.getTotalElements());
-		return "index";
+		return "admin";
 	}
 
 }

@@ -1,6 +1,13 @@
 <!doctype html>
 <html>
 <head>
+<!-- back button disable -->
+<script type="text/javascript" >
+function preventBack(){window.history.forward();}
+setTimeout("preventBack()", 0);
+window.onunload=function(){null};
+</script>
+<!-- back button disable -->
 <!-- Required meta tags -->
 <meta charset="utf-8">
 <meta name="viewport"
@@ -40,7 +47,8 @@
 					<center>
 						<h4 class="button button5"><h3>Add Agent</h3></h4>
 				    </center>
-						<form th:action="@{/register}" method="post">
+				    <!--  <form action="#" th:action="@{/saveAgent}" th:object="${agent}" method="POST">  th:object="${agentData}"-->
+						<form action="#" th:action="@{/register}"  method="post">
 
 							<div class="form-group">
 								<label><h6>Enter Full Name</h6></label> <input type="text"
